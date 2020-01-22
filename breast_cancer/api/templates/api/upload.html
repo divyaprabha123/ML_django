@@ -1,13 +1,21 @@
 {% extends 'api/base.html' %}
 
 {% block content %}
- <h2>Upload</h2>
+ <h2>Make predictions on test data</h2>
+<br>
  <form method="post" enctype="multipart/form-data">
      {% csrf_token %}
      <input type="file" name="document">
      <button type="submit">Upload file</button>
 </form>
 {% if url %}
-    <p>Output file with labels: <a href="{{ url }}">{{ url }}</a></p>
+<br>
+    <td>
+        <a href="{{ url }}" class="btn btn-primary btn-sm" target="_blank">
+              Download Result prediction
+        </a>
+
+    </td>
+
   {% endif %}
 {% endblock %}
